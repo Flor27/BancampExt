@@ -7,12 +7,18 @@ Still a lot of things to do, but now you can test it as follow :
  - copy & paste lib.js content in Javascript console
  - still in JS console, type (or copy & paste) :
 
-<code>BcJs_PreloadPage();</code>
+<code>BcJs.PreloadPage();
 
-- wait for the "Ready to play !" message, then type :
+var _startTimer = setInterval(function() {
+	if(BcJs.readyToPlay == true) {
+		BcJs.playingStatut = STATUS_PLAYING;
+		BcJs.PlayNextRandomAndWait();
+		clearInterval(_startTimer);
+		_startTimer = null;
+		console.log('....Hell Yeah !');
+	} else {
+		console.log('Still waitin....');
+	}
+}, 1000);</code>
 
-<code>BcJs_playingStatut = STATUS_PLAYING;</code>
-
-- then finaly, type the following line to enjoy the sound !
-
-<code>BcJs_PlayNextRandomAndWait();</code>
+Enjoy !
