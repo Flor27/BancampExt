@@ -7,7 +7,7 @@ Still a lot of things to do, but now you can test it as follow :
  - copy & paste lib.js content in Javascript console
  - still in JS console, type (or copy & paste) :
 
-<code>BcJs.PreloadPage();
+<pre><code>BcJs.PreloadPage();
 
 var _startTimer = setInterval(function() {
 	if(BcJs.readyToPlay == true) {
@@ -19,6 +19,6 @@ var _startTimer = setInterval(function() {
 	} else {
 		console.log('Still waitin....');
 	}
-}, 1000);</code>
+}, 1000);</code></pre>
 
 Enjoy !
