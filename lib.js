@@ -65,13 +65,14 @@ var BcJs = {
 		bodyRect = document.body.getBoundingClientRect(),
 		offsetX   = elemRect.left - bodyRect.left;
 		offsetY   = elemRect.top - bodyRect.top;
-		window.scrollTo(offsetX-10,offsetY-10)
+		window.scrollTo(offsetX-10,offsetY-120)
 	},
 	PlayIt : function(itemId) {
 		console.log('BcJs.PlayIt('+itemId+')');$('li.collection-item-container[data-itemid='+itemId+'] span.item_link_play_bkgd').click();
 		BcJs.FocusOnItem(itemId);
 		BcJs.currentId = itemId;
 		BcJs.playingStatut = STATUS_PLAYING;
+		console.log(BcJs.currentPlaylist.length + ' items in Playlist...');
 	},
 
 	PlayNextRandomAndWait : function() {
@@ -89,6 +90,7 @@ var BcJs = {
 		}
 		else {
 			BcJs.currentPlayingMode = '';
+			console.log('Nothing left to play ! :(');
 		}
 	},
 
@@ -105,6 +107,10 @@ var BcJs = {
 				BcJs.StartIntervalTimer(BcJs.PlayNextAndWait, 2000);
 			}
 		}
+		else {
+			BcJs.currentPlayingMode = '';
+			console.log('Nothing left to play ! :(');
+		}
 	},
 
 	ScrollAndWait : function() {
@@ -118,7 +124,6 @@ var BcJs = {
 			BcJs.ClearIntervalTimer(BcJs.ScrollAndWait);
 			BcJs.currentPlaylist = collectionTabs.currentTab.grids[0].sequence;
 			BcJs.readyToPlay = true;
-
 		}
 	},
 };
