@@ -11,7 +11,7 @@ Still a lot of things to do, but now you can test it as follow :
 
 var _startTimer = setInterval(function() {
 	if(BcJs.readyToPlay == true) {
-		BcJs.playingStatut = STATUS_PLAYING;
+		BcJs.playingStatut = BCJS_STATUS_PLAYING;
 		BcJs.PlayNextRandomAndWait();
 		clearInterval(_startTimer);
 		_startTimer = null;
@@ -19,6 +19,6 @@ var _startTimer = setInterval(function() {
 	} else {
 		console.log('Still waitin....');
 	}
-}, 1000);</code></pre>
+}, 200);</code></pre>
 
 Enjoy !
